@@ -16,7 +16,9 @@ var example_data = { data ....}
 ```
 
 ## Demo délimitations avec Mapbox GL
-* API maps lombard-web-services [demo-mapbox-gl-js]
+* Délimitation GEOJSON API maps lombard-web-services [demo-mapbox-gl-js]
+* Carte interactive SVG communautés de communes et communautés d'agglomérations [demo-svg-cacc]
+* Carte interactive SVG PETR et CA - CC [demo-svg-cacc-petr]
 
 # SVG interactif Choropleth
 ![image](https://raw.githubusercontent.com/Lombard-Web-Services/cartographie/master/cartographie/puy_de_dome/images/svg_CACCPETR.png)
@@ -47,7 +49,7 @@ Copyleft - Thibaut LOMBARD
 
 
 [comment]: #
-   [demo-mapbox-gl-js]: <https://github.io>
-   [demo-svg-cacc]: <https://github.io>
-   [demo-svg-cacc-petr]: <https://github.io>
+   [demo-mapbox-gl-js]: <https://lombard-web-services.github.io/cartographie/cartographie/puy_de_dome/maps_petr.html>
+   [demo-svg-cacc]: <https://lombard-web-services.github.io/cartographie/cartographie/puy_de_dome/demo_CACC.html>
+   [demo-svg-cacc-petr]: <https://lombard-web-services.github.io/cartographie/cartographie/puy_de_dome/demo_CACC_PETR.html>
    [GNU-GPL]: <https://www.gnu.org/licenses/licenses.fr.html>
