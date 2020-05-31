@@ -15,7 +15,7 @@ Naviguez dans le fichier [js/sampledata.js] pour ajouter le dataset dans l'objet
 var example_data = { data ....}
 ```
 
-## Demo délimitations avec Mapbox GL
+## Demo
 * Délimitation GEOJSON API maps lombard-web-services [demo-mapbox-gl-js]
 * Carte interactive SVG communautés de communes et communautés d'agglomérations [demo-svg-cacc]
 * Carte interactive SVG PETR et CA - CC [demo-svg-cacc-petr]
