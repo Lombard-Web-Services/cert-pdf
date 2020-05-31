@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Puy De Dôme</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://s2maps.lombard-web-services.com/mapbox-gl-js/mapbox-gl.js"></script>
+<link href="https://s2maps.lombard-web-services.com/mapbox-gl-js/mapbox-gl.css" rel="stylesheet" />
+<style>
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; };
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+mapboxgl.accessToken = 'I say, you do not need an access token';
+latsetview = 45.7733;
+lonsetview = 3.1847;
+var map = new mapboxgl.Map({
+container: 'map', 
+style: 'https://maps.lombard-web-services.com/styles/klokantech-basic/style.json',
+center: [lonsetview, latsetview],
+zoom: 8 
+});
+
+map.on('load', function() {
+map.resize();
+// url du fichier JSON
+url ='json/puy_de_dome.geojson';
+nomsrcmeuse = 'full';
+map.addSource('puy_de_dome', {
+'type': 'geojson',
+'data': url
+});												
+map.addLayer({
+'id': 'puy_de_dome_boundaries',
+'type': 'line',
+'source': 'puy_de_dome',
+'layout': {
+'line-join': 'round',
+'line-cap': 'round'
+},
+'paint': {
+'line-color': '#691f0e',
+'line-width': 1
+},
+'filter': ['==', '$type', 'Polygon']
+});
+});
+</script>
+</body>
+</html>
