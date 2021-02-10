@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr" charset="UTF-8" >
+<head>
+  <meta charset="UTF-8">
+  <title>Créé ton certificat</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/source-code-pro.js"></script>
+</head>
+<body>
+<header class="header">
+  <h1 class="header__title">cert-pdf</h1>
+</header>
+<!--PEN CONTENT     -->
+<div class="content">
+  <!--content inner-->
+  <div class="content__inner">
+    <div class="container">
+      <!--content title-->
+      <h2 class="content__title content__title--m-sm">En 4 étapes créez un certificat exportable</h2>
+      <!--content title-->
+      <h2 class="content__title">Vous pourrez par la suite générer vos certificats automatiquement dans votre application</h2>
+    </div>
+    <div class="container overflow-hidden">
+      <!--multisteps-form-->
+      <div class="multisteps-form">
+        <!--progress bar-->
+        <div class="row">
+          <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
+            <div class="multisteps-form__progress">
+              <button class="multisteps-form__progress-btn js-active" type="button" title="Arriere Plan">Arrière plan</button>
+              <button class="multisteps-form__progress-btn" type="button" title="Signature">Options</button>
+              <button class="multisteps-form__progress-btn" type="button" title="Previsualisation">Prévisualisation</button>
+              <button class="multisteps-form__progress-btn" type="button" title="Code Source">Téléchargement</button>
+            </div>
+          </div>
+        </div>
+        <!--form panels-->
+        <div class="row">
+          <div class="col-12 col-lg-8 m-auto">
+            <form class="multisteps-form__form">
+              <!--single form panel-->
+              <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleOut">
+                <h3 class="multisteps-form__title">Configuration de l'Arriere Plan</h3>
+                <div class="multisteps-form__content">
+                  <div class="form-row mt-4">
+                      <div class="card shadow-sm">
+                        <div class="card-body">
+                         <p class="card-text">Sélectionner votre modèle de certificat à uploader (PNG, JPG) au format A4 (297mm x 210mm)</p>
+                          <h5 class="card-title">Exemple / Visualisation</h5>
+                          <div class="preview" style="display:block;width:90%;margin:auto;">
+                          <a href="images/a4-cert.jpg" target="_blank" alt="Exemple d'image"><img src="images/a4-cert.jpg" style="display:block;width:90%;margin:auto;"/></a>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="form-row mt-4">
+                       <label for="image_upload" class="btn btn-primary"  style="text-align:center;margin:auto;width:90%;">Sélectionnez un fichier</label>
+                       <input type="file" id="image_upload" class="iu"  accept=".jpg, .jpeg, .png">
+                  </div>
+                  <div class="button-row d-flex mt-4">
+                    <button class="btn btn-primary ml-auto js-btn-next bgnext" type="button" title="Suivant">Suivant</button>
+                  </div>
+                </div>
+              </div>
+              <!--single form panel-->
+              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleOut">
+                <h3 class="multisteps-form__title">Créez votre signature</h3>
+                <div class="multisteps-form__content">
+                    <div class="form-row mt-4">
+                      <div class="card shadow-sm" style="width:100%">
+                        <div class="card-body">
+                          <h5 class="card-title">Dans le carré ci-dessous.</h5>
+                           <p class="card-text">via le curseur ou touchpad</p>
+                           <div class="dashedborder signature-component">
+                             <canvas id="signature-pad" width="800em" height="200"></canvas>
+                            </div>
+                           <div>
+                             <span class="btn btn-primary right"  id="clear" style="float:right;">ré-initialiser</span>
+                             <input type="hidden" id="showPointsToggle" />
+                           </div>
+                        </div>
+                      </div>     
+                     </div>     
+                  <div class="button-row d-flex mt-4">
+                    <button class="btn btn-primary js-btn-prev" type="button" title="precedent">Précédent</button>
+                    <button class="btn btn-primary ml-auto js-btn-next sign" id="save" type="button" title="Next">Suivant</button>
+                  </div>
+                </div>
+              </div>
+              <!--single form panel-->
+              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleOut">
+                <h3 class="multisteps-form__title">Prévisualisation</h3>
+                <div class="multisteps-form__content">
+                  <div class="form-row mt-4">
+                    <div  style="float: left;width:100%">
+                    <iframe class="preview-pane" type="application/pdf" width="100%" height="500" frameborder="0" style="position:relative;z-index:999"></iframe>
+                   </div>
+                  </div>
+                  <div class="form-row mt-4">
+                   <div id="editor" class="bypass" height="500px"></div>
+                    <div class="card shadow-sm" style="float:right;margin:auto;display:block;margin-top:1em;">
+                     <div class="card-body">
+                      <div class="controls" style="margin:auto;display:block;">
+                       <label class="checkbox">
+                        <input type="checkbox" id="auto-refresh" checked="checked"> Rafraichir
+                       </label>
+                       <a href="#" class="btn btn-primary download-pdf">Téléchargez le pdf</a>
+                      </div>
+                     </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="button-row d-flex mt-4 col-12">
+                      <button class="btn btn-primary js-btn-prev pdfupdate" type="button" title="Prev">Précédent</button>
+                      <button class="btn btn-primary ml-auto js-btn-next fourthstep" type="button" title="Next">Suivant</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--single form panel-->
+              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleOut">
+                <h3 class="multisteps-form__title">Téléchargement</h3>
+                <div class="multisteps-form__content">
+                  <div class="form-row mt-4">
+                   <div class="card shadow-sm" style="float:right;margin:auto;display:block;margin-top:1em;">
+                     <div class="card-body">
+                      <div class="controls" style="margin:auto;display:block;">
+                       <a href="#" class="btn btn-primary download-archive">Téléchargez au format zip</a>
+                      </div>
+                     </div>
+                    </div>
+                  </div>
+                  <div class="button-row d-flex mt-4">
+                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Précédent</button>
+                    <button class="btn btn-success ml-auto reload" type="button" title="Reload">Recommencer</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="js/underscore-min.js"></script> 
+<script src="js/ace.js" type="text/javascript" charset="utf-8"></script>
+<!-- Scripts in development mode -->
+<script type="text/javascript" src="js/jspdf.debug.js"></script>
+<script type="text/javascript"  src="js/jszip.min.js"></script>
+<script type="text/javascript"  src="js/jszip-utils.min.js"></script>
+<script type="text/javascript"  src="js/FileSaver.min.js"></script>
+<script type="text/javascript"  src="js/script.js"></script>
+</body>
+</html>
